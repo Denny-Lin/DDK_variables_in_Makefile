@@ -55,5 +55,11 @@ $(program) : $(objects)
 ```
 ![Screen Shot 2022-08-28 at 1 03 00 PM](https://user-images.githubusercontent.com/67073582/187058418-4aedc722-1eda-45f1-92b8-ec707bb0a632.png)
 
+# CFLAGS
+
+```C
+...
+```
+
 # References
 1. https://www.gnu.org/software/make/manual/make.html
