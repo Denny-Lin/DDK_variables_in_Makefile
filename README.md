@@ -55,5 +55,37 @@ $(program) : $(objects)
 ```
 ![Screen Shot 2022-08-28 at 1 03 00 PM](https://user-images.githubusercontent.com/67073582/187058418-4aedc722-1eda-45f1-92b8-ec707bb0a632.png)
 
+# CFLAGS
+"CFLAGS += -D[]" is equal to "#define []".
+
+```sh
+CFLAGS += -D__DEBUG__
+
+ifeq ($(VAR_ENABLE), y)
+	CC := gcc
+	program := helloworld
+	objects := helloworld.o
+endif
+
+$(program) : $(objects)
+	$(CC) -o $(program) $(CFLAGS) $(objects) 
+	@echo "__Make Enable__";
+```
+```c
+#include<stdio.h>
+
+int main(){
+
+#ifdef __DEBUG__
+  printf("Hello World\n");
+#else
+  printf("__DEBUG__ disappear.\n");
+#endif
+  
+  return 0;
+}
+```
+![Screen Shot 2022-08-28 at 8 22 59 PM](https://user-images.githubusercontent.com/67073582/187074001-87cf85aa-ef65-4e15-bf51-eb6938da97bb.png)
+
 # References
 1. https://www.gnu.org/software/make/manual/make.html
